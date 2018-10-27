@@ -17,6 +17,30 @@
         }
 */
 
+// NUMBER 1
+
+const getSuperHero = {
+    'name': 'Batman', 
+    'alterEgoName' : 'Bruce Wayne',
+    isVillain : false, 
+    age : 31,
+};
+
+console.log(getSuperHero);
+
+//Alternative solution:
+
+let getSuperHero1 = (name, alterEgoName, isVillain, age) => {
+    return {
+        name,
+        alterEgoName,
+        isVillain,
+        age
+    }
+}
+
+console.log(getSuperHero1("Batman", "Bruce Wayne", false, 31));
+
 /*
     @func updateSuperHero
     @param {object} superHero
@@ -42,6 +66,7 @@
             likesBats: true
         }
 */
+let updateSuperHero = ()
 
 /*
     @func updateSuperHeroAction
