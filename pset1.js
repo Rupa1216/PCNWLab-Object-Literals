@@ -20,25 +20,25 @@
 // NUMBER 1
 
 const getSuperHero = {
-    'name': 'Batman', 
-    'alterEgoName' : 'Bruce Wayne',
-    isVillain : false, 
-    age : 31,
+    'name': 'Batman',
+    'alterEgoName': 'Bruce Wayne',
+    isVillain: false,
+    age: 31,
 };
 
 console.log(getSuperHero);
 
 //Alternative solution:
 
-let getSuperHero1 = (name, alterEgoName, isVillain, age) => {
+const getSuperHero1 = (name, alterEgoName, isVillain, age) => {
     return {
         name,
         alterEgoName,
         isVillain,
         age
-    }
+    };
 }
-
+const batman = getSuperHero1("Batman", "Bruce Wayne", false, 31);
 console.log(getSuperHero1("Batman", "Bruce Wayne", false, 31));
 
 /*
@@ -66,7 +66,17 @@ console.log(getSuperHero1("Batman", "Bruce Wayne", false, 31));
             likesBats: true
         }
 */
-let updateSuperHero = ()
+
+// NUMBER 2
+
+const updateSuperHero = (superHero, keyName, keyValue) => {
+    superHero[keyName] = keyValue
+    // return superHero; don't need this here 
+};
+
+console.log(updateSuperHero(batman, "likesBats", true));
+
+// console.log(batman);
 
 /*
     @func updateSuperHeroAction
@@ -87,7 +97,7 @@ let updateSuperHero = ()
             return "I'm Batman";
         });
         {
-            name: 'Batman',
+            name: 'Batman',1
             alterEgoName: 'Bruce Wayne',
             isVillain: false,
             age: 31,
@@ -96,6 +106,24 @@ let updateSuperHero = ()
             }
         }   
 */
+
+// NUMBER 3
+
+const updateSuperHeroAction = (superHero, actionName, actionFunction) => {
+    superHero[actionName] = actionFunction;
+    return superHero;
+}
+// const batman = {
+//     name: 'Batman',
+//     alterEgoName: 'Bruce Wayne',
+//     isVillain: false,
+//     age: 31
+// }
+console.log(updateSuperHeroAction(batman, 'saySomething', function saySomething() {
+    return "I'm Batman";
+}));
+
+
 
 /*
     @func updateSuperHeroInBulk
@@ -135,4 +163,25 @@ let updateSuperHero = ()
         }     
 */
 
+// NUMBER 4
 
+const updateSuperHeroInBulk = (superHero, properties) => {
+    for (let i = 0; i < properties.length; i++){
+        if (i % 2 === 0 ){
+            updateSuperHero(superHero, properties[i], properties[i+1]);
+        // superHero[arr[i]] = arr[i + 1]
+    }
+}
+return superHero;
+}
+
+console.log(updateSuperHeroInBulk(batman, [
+    'saySomething',
+    function saySomething() {
+        return "I'm Batman";
+    },
+    'likesBats',
+    true,
+    'isRich',
+    true
+]))
